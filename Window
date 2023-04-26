@@ -13,7 +13,7 @@ public class Window extends JFrame implements MouseListener{
 	private Canvas canvas;
 	private ColorSliders rgb;
 	private ColorButtons colors;
-	private Menu menu;
+	private Archivo archivos;
 	
 	public Window(int width, int height) {
 	
@@ -23,20 +23,20 @@ public class Window extends JFrame implements MouseListener{
 		components();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // al cerrar la ventana se detiene el programa
-		setSize(width, height);							// tamaño de la ventana
-		setLocationRelativeTo(null);					// centra la ventana
-		setLayout(null);								// elimina plantillas
-		setResizable(false);							// no permite modificar el tamaño de la ventana
-		setVisible(true);								// muestra la ventana	
+		setSize(width, height);			        // tamaño de la ventana
+		setLocationRelativeTo(null);			// centra la ventana
+		setLayout(null);				// elimina plantillas
+		setResizable(false);				// no permite modificar el tamaño de la ventana
+		setVisible(true);				// muestra la ventana	
 	}
 			
 	private void components()
 	{
 		contentPane = new JPanel();
-		canvas 		= new Canvas();
-		rgb 		= new ColorSliders();
-		colors 		= new ColorButtons();
-		menu 		= new Menu();
+		canvas = new Canvas();
+		rgb = new ColorSliders();
+		colors = new ColorButtons();
+		archivos = new Archivo();
 		
 		contentPane.setLayout(null);
 		contentPane.setBackground(new Color(249,249,249));
@@ -53,7 +53,7 @@ public class Window extends JFrame implements MouseListener{
 		add(colors);
 		
 		menu.setBounds(950, 30, 400, 400);
-		add(menu);
+		add(archivos);
 		
 		add(contentPane);
 	}
