@@ -98,7 +98,6 @@ public class Menu extends JPanel {
                     Graphics g = Canvas.img.getGraphics();
                     g.drawImage(loadedImage, 0, 0, null);
                     g.dispose();
-                    repaint();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
