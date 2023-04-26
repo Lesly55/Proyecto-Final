@@ -1,0 +1,8 @@
+public class Starter {
+	
+	public static void main(String[] args) {	
+		
+		Window w = new Window(1500, 1000);
+	}
+
+}
