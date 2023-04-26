@@ -1,0 +1,91 @@
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Window extends JFrame implements MouseListener{
+	
+	private static final long serialVersionUID = 1L;
+	private int width, height;
+	private JPanel contentPane;
+	private Canvas canvas;
+	private ColorSliders rgb;
+	private ColorButtons colors;
+	private Menu menu;
+	
+	public Window(int width, int height) {
+	
+		this.width = width;
+		this.height = height;				
+		
+		components();
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // al cerrar la ventana se detiene el programa
+		setSize(width, height);							// tamaño de la ventana
+		setLocationRelativeTo(null);					// centra la ventana
+		setLayout(null);								// elimina plantillas
+		setResizable(false);							// no permite modificar el tamaño de la ventana
+		setVisible(true);								// muestra la ventana	
+	}
+			
+	private void components()
+	{
+		contentPane = new JPanel();
+		canvas 		= new Canvas();
+		rgb 		= new ColorSliders();
+		colors 		= new ColorButtons();
+		menu 		= new Menu();
+		
+		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(249,249,249));
+		contentPane.setBounds(0,0,width,height);
+
+		canvas.setBounds(20, 20, 900,700);//---	
+		canvas.addMouseListener(this);
+		add(canvas);
+		
+		rgb.setBounds(1000, 80, 320, 500);
+		add(rgb);
+		
+		colors.setBounds(1000, 600, 300, 100);
+		add(colors);
+		
+		menu.setBounds(950, 30, 400, 400);
+		add(menu);
+		
+		add(contentPane);
+	}
+
+	public void mouseClicked(MouseEvent e) {
+		Color c = rgb.getColor();
+		canvas.getGraphic().setColor(c);
+		colors.setColor(c);
+		
+	}
+
+	public void mousePressed(MouseEvent e) {
+		Color c = rgb.getColor();
+		canvas.getGraphic().setColor(c);
+		colors.setColor(c);
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}
