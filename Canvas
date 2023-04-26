@@ -8,14 +8,12 @@ import javax.swing.*;
 
 public class Canvas extends JPanel implements MouseListener, MouseMotionListener{
 	
-	
 	private static final long serialVersionUID = 1L;
 	private int x,y;
 	protected static BufferedImage img;
 	protected static Graphics gfx;	
 	private static int PIXEL_SIZE = 20;
 
-	
 	public Canvas() {		
 		setOpaque(true);
 		addMouseListener(this);
@@ -27,11 +25,8 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 
 		gfx.fillRect ( 0, 0, 900, 700);
 		drawSquareGrid(50, Color.black);
-		
 	}
 
-	 
-	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -39,7 +34,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 	    g.setColor(Color.red);
 	    g.fillOval(x-5, y-5, 10, 10);   
 	    repaint();
-	    
 	}
 	
 	public static void setImage(Image image) {
@@ -48,14 +42,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		gfx.drawImage(img, 0, 0, 800, 800, null);
 		drawSquareGrid(40, Color.black);
 	}
-	
-	public static void saveImage(String name, String type) {
-		 try {       
-	         ImageIO.write(img, type, new File(name + "." + type));
-	     } catch (Exception e) {
-	         e.printStackTrace();
-	     }
-	 }
 	
 	public Graphics getGraphic() {
 		return gfx;
@@ -103,8 +89,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		y = e.getY(); 
 		paintPixel();
         repaint();
-        
-	 }
+	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {}
