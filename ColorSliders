@@ -23,24 +23,24 @@ public class ColorSliders extends JPanel implements ActionListener, ChangeListen
 		components();
 		
 		setSize(400, 600);							// tamaño de la ventana
-		setLayout(null);								// elimina plantillas
+		setLayout(null);							// elimina plantillas
 		setBackground(new Color(249,249,249));
 		setVisible(true);				
 	}
 		
 	
 	private void components() {
-		red			= new JSlider(0, 255);
-		green		= new JSlider(0, 255);
-		blue		= new JSlider(0, 255);
-		rLbl 		= new JLabel("Red");
-		gLbl  		= new JLabel("Green");
-		bLbl  		= new JLabel("Blue");
-		rt 			= new JTextField("127");
-		gt 			= new JTextField("127");
-		bt 			= new JTextField("127");
-		color 		= new JLabel("");
-		col 		= new Color(127, 127,127);
+		red = new JSlider(0, 255);
+		green = new JSlider(0, 255);
+		blue = new JSlider(0, 255);
+		rLbl = new JLabel("Red");
+		gLbl = new JLabel("Green");
+		bLbl = new JLabel("Blue");
+		rt = new JTextField("127");
+		gt = new JTextField("127");
+		bt = new JTextField("127");
+		color = new JLabel("");
+		col = new Color(127, 127,127);
 		
 		
 		// Color
