@@ -1,11 +1,18 @@
+
+import java.awt.*;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -13,7 +20,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Menu extends JPanel {
 	
 	
-	private static JButton saveBtn, saveAsBtn, openBtn;
+	protected static JButton eraseBtn, saveAsBtn, openBtn;
+	
+
+	
 
 	public Menu(){
 		components();
@@ -21,21 +31,31 @@ public class Menu extends JPanel {
 		setSize(400, 400);
 		setLayout(null);
 		setBackground(new Color(249,249,249));
-		setVisible(true);				
+		setVisible(true);
+	
+
+		
 	}
 		
 	
-	private void components() {
-		saveBtn 	= new JButton("Save");
+	protected void components() {
+		eraseBtn 	= new JButton("Erase All");
 		saveAsBtn 	= new JButton("Save as");
 		openBtn		= new JButton("Open");
 
-		saveBtn.setBounds(10, 10, 120, 30);
-		saveBtn.setBackground(Color.red);
-		saveBtn.setOpaque(true);
-		saveBtn.setBorderPainted(false);
-		saveBtn.setForeground(Color.black);
-		saveBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		eraseBtn.setBounds(10, 10, 120, 30);
+		eraseBtn.setBackground(Color.red);
+		eraseBtn.setOpaque(true);
+		eraseBtn.setBorderPainted(false);
+		eraseBtn.setForeground(Color.black);
+		eraseBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		eraseBtn.addActionListener(e -> {
+			Canvas.gfx.setColor(Color.white);
+			Canvas.gfx.fillRect(0, 0, 900, 700);
+			Canvas.drawSquareGrid(700, Color.black);
+	    });
+		
+		
     //falta actionlistener
 		
 		saveAsBtn.setBounds(150, 10, 120, 30);
@@ -44,6 +64,21 @@ public class Menu extends JPanel {
 		saveAsBtn.setBorderPainted(false);
 		saveAsBtn.setForeground(Color.black);
 		saveAsBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		
+		saveAsBtn.addActionListener(e -> {
+	        JFileChooser fileChooser = new JFileChooser();
+	        fileChooser.setFileFilter(new FileNameExtensionFilter("PNG Images", "png"));
+	        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+	            File file = fileChooser.getSelectedFile();
+	            try {
+	                ImageIO.write( Canvas.img, "png", file);
+	            } catch (Exception ex) {
+	                ex.printStackTrace();
+	            }
+	        }
+	    });
+	    
+
     //falta actionlistener
 		
 		openBtn.setBounds(290, 10, 120, 30);
@@ -52,11 +87,29 @@ public class Menu extends JPanel {
 		openBtn.setBorderPainted(false);
 		openBtn.setForeground(Color.black);
 		openBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		
+		openBtn.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileFilter(new FileNameExtensionFilter("PNG Images", "png"));
+            if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                try {
+                    BufferedImage loadedImage = ImageIO.read(file);
+                    Graphics g = Canvas.img.getGraphics();
+                    g.drawImage(loadedImage, 0, 0, null);
+                    g.dispose();
+                    repaint();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+		
+		
     //falta actionlistener
 		
-		add(saveBtn);
+		add(eraseBtn);
 		add(saveAsBtn);
 		add(openBtn);
 	}
 
-}
