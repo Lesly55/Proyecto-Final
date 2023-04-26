@@ -1,0 +1,62 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class Menu extends JPanel {
+	
+	
+	private static JButton saveBtn, saveAsBtn, openBtn;
+
+	public Menu(){
+		components();
+		
+		setSize(400, 400);
+		setLayout(null);
+		setBackground(new Color(249,249,249));
+		setVisible(true);				
+	}
+		
+	
+	private void components() {
+		saveBtn 	= new JButton("Save");
+		saveAsBtn 	= new JButton("Save as");
+		openBtn		= new JButton("Open");
+
+		saveBtn.setBounds(10, 10, 120, 30);
+		saveBtn.setBackground(Color.red);
+		saveBtn.setOpaque(true);
+		saveBtn.setBorderPainted(false);
+		saveBtn.setForeground(Color.black);
+		saveBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+    //falta actionlistener
+		
+		saveAsBtn.setBounds(150, 10, 120, 30);
+		saveAsBtn.setBackground(Color.green);
+		saveAsBtn.setOpaque(true);
+		saveAsBtn.setBorderPainted(false);
+		saveAsBtn.setForeground(Color.black);
+		saveAsBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+    //falta actionlistener
+		
+		openBtn.setBounds(290, 10, 120, 30);
+		openBtn.setBackground(Color.blue);
+		openBtn.setOpaque(true);
+		openBtn.setBorderPainted(false);
+		openBtn.setForeground(Color.black);
+		openBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+    //falta actionlistener
+		
+		add(saveBtn);
+		add(saveAsBtn);
+		add(openBtn);
+	}
+
+}
