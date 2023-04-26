@@ -17,15 +17,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class Menu extends JPanel {
+public class Archivo extends JPanel {
 	
 	
 	protected static JButton eraseBtn, saveAsBtn, openBtn;
-	
 
-	
-
-	public Menu(){
+	public Archivo(){
 		components();
 		
 		setSize(400, 400);
@@ -54,10 +51,7 @@ public class Menu extends JPanel {
 			Canvas.gfx.fillRect(0, 0, 900, 700);
 			Canvas.drawSquareGrid(700, Color.black);
 	    });
-		
-		
-    //falta actionlistener
-		
+				
 		saveAsBtn.setBounds(150, 10, 120, 30);
 		saveAsBtn.setBackground(Color.green);
 		saveAsBtn.setOpaque(true);
@@ -77,10 +71,7 @@ public class Menu extends JPanel {
 	            }
 	        }
 	    });
-	    
-
-    //falta actionlistener
-		
+	    		
 		openBtn.setBounds(290, 10, 120, 30);
 		openBtn.setBackground(Color.blue);
 		openBtn.setOpaque(true);
@@ -103,10 +94,7 @@ public class Menu extends JPanel {
                 }
             }
         });
-		
-		
-    //falta actionlistener
-		
+				
 		add(eraseBtn);
 		add(saveAsBtn);
 		add(openBtn);
