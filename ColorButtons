@@ -27,18 +27,18 @@ public class ColorButtons extends JPanel implements ActionListener {
 	
 	private void components() {
 		
-		red 	= new JButton("");
-		green 	= new JButton("");
-		blue 	= new JButton("");
-		yellow 	= new JButton("");
-		black 	= new JButton("");
-		white 	= new JButton("");
-		col1 	= new JButton("");
-		col2 	= new JButton("");
-		col3 	= new JButton("");
-		col4 	= new JButton("");
-		col5 	= new JButton("");
-		col6 	= new JButton("");
+		red = new JButton("");
+		green = new JButton("");
+		blue = new JButton("");
+		yellow = new JButton("");
+		black = new JButton("");
+		white = new JButton("");
+		col1 = new JButton("");
+		col2 = new JButton("");
+		col3 = new JButton("");
+		col4 = new JButton("");
+		col5 = new JButton("");
+		col6 = new JButton("");
 		colors = new ArrayList<Color>();
 		
 		colors.add(Color.red);
@@ -113,7 +113,6 @@ public class ColorButtons extends JPanel implements ActionListener {
 		col6.setOpaque(true);
 		col6.setBackground(new Color(80, 80, 80));
 		col6.setBorderPainted(false);
-		
 		
 		add(red);
 		add(green);
