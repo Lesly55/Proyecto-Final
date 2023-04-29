@@ -1,0 +1,99 @@
+package proyecto_final;
+
+//import java.awt.*;
+import java.awt.Color;
+//import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+//import java.awt.Image;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+//import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+//import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class Archivo extends JPanel {
+	
+	Color translucent = new Color(0, 0, 0, 0);
+	protected static JButton eraseBtn, saveAsBtn, openBtn;
+
+	public Archivo(){
+		components();
+		setSize(400, 400);
+		setLayout(null);
+		//setBackground(Color.gray);
+		setVisible(true);
+	}
+	
+	protected void components() {
+		eraseBtn 	= new JButton("Erase All");
+		saveAsBtn 	= new JButton("Save as");
+		openBtn		= new JButton("Open");
+
+		eraseBtn.setBounds(10, 10, 120, 30);
+		eraseBtn.setBackground(Color.red);
+		eraseBtn.setOpaque(true);
+		eraseBtn.setBorderPainted(false);
+		eraseBtn.setForeground(Color.black);
+		eraseBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		eraseBtn.addActionListener(e -> {
+			Canvas.gfx.setColor(Color.white);
+			Canvas.gfx.fillRect(0, 0, 900, 700);
+			Canvas.drawSquareGrid(700, Color.black);
+	    });
+				
+		saveAsBtn.setBounds(150, 10, 120, 30);
+		saveAsBtn.setBackground(Color.green);
+		saveAsBtn.setOpaque(true);
+		saveAsBtn.setBorderPainted(false);
+		saveAsBtn.setForeground(Color.black);
+		saveAsBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		
+		saveAsBtn.addActionListener(e -> {
+	        JFileChooser fileChooser = new JFileChooser();
+	        fileChooser.setFileFilter(new FileNameExtensionFilter("PNG Images", "png"));
+	        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+	            File file = fileChooser.getSelectedFile();
+	            try {
+	                ImageIO.write( Canvas.img, "png", file);
+	            } catch (Exception ex) {
+	                ex.printStackTrace();
+	            }
+	        }
+	    });
+	    		
+		openBtn.setBounds(290, 10, 120, 30);
+		openBtn.setBackground(Color.blue);
+		openBtn.setOpaque(true);
+		openBtn.setBorderPainted(false);
+		openBtn.setForeground(Color.black);
+		openBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		
+		openBtn.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileFilter(new FileNameExtensionFilter("PNG Images", "png"));
+            if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                try {
+                    BufferedImage loadedImage = ImageIO.read(file);
+                    Graphics g = Canvas.img.getGraphics();
+                    g.drawImage(loadedImage, 0, 0, null);
+                    g.dispose();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+				
+		add(eraseBtn);
+		add(saveAsBtn);
+		add(openBtn);
+	}
+}
+
