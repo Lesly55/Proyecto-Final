@@ -49,14 +49,14 @@ public class Window extends JFrame implements MouseListener{
 		//contentPane.setBackground(Color.white);
 		contentPane.setBounds(0,0,width,height);
 
-		canvas.setBounds((int) (width*.01), (int) (height*.02), (int) (width*.6), (int) (height*.9));//---	
+		canvas.setBounds((int) (width*.01), (int) (height*.02), (int) (width*.6), (int) (height*.99));//---	
 		canvas.addMouseListener(this);
 		add(canvas);
 		
-		rgb.setBounds((int) (width*.65), (int) (height*.10), (int) (width*.3), (int) (height*.68));
+		rgb.setBounds((int) (width*.65), (int) (height*.10), (int) (width*.4), (int) (height*.68));
 		add(rgb);
 		
-		colors.setBounds((int) (width*.67), (int) (height*.8), (int) (width*.251), (int) (height*.5));
+		colors.setBounds((int) (width*.67), (int) (height*.8), (int) (width*.36), (int) (height*.5));
 		add(colors);
 		
 		archivos.setBounds((int) (width*.63), (int) (height*.03), (int) (width*.5), (int) (height*.3));

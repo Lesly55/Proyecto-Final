@@ -14,20 +14,16 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 	protected static BufferedImage img;
 	protected static Graphics gfx;	
 	private static int PIXEL_SIZE = 20;
-	public Toolkit toolkit;
-	public Dimension screenSize;
-	private int width;
-	private int height;
+	public Toolkit toolkit = Toolkit.getDefaultToolkit();
+	public Dimension screenSize = toolkit.getScreenSize();
+	private int width = (int) (screenSize.width*0.528);
+	private int height = (int) (screenSize.height*0.809);
 
 	public Canvas() {		
 		setOpaque(true);
 		addMouseListener(this);
 		addMouseMotionListener(this);
 		//setBackground(Color.white);
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = toolkit.getScreenSize();
-		width = (int) (screenSize.width*0.527);
-		height = (int) (screenSize.height*0.8);
 		
 		img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		gfx = img.createGraphics();
