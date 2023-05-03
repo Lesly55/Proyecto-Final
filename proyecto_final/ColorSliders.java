@@ -1,5 +1,4 @@
 package proyecto_final;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -26,7 +25,7 @@ public class ColorSliders extends JPanel implements ActionListener, ChangeListen
 		
 		setSize(400, 600);							// tamaño de la ventana
 		setLayout(null);							// elimina plantillas
-		setBackground(Color.white);
+		setBackground(new Color(249,249,249));
 		setVisible(true);				
 	}
 		
@@ -51,56 +50,59 @@ public class ColorSliders extends JPanel implements ActionListener, ChangeListen
 		
 		// Red slider 
 		rLbl.setBounds(25, 50, 40, 30);
-		rLbl.setForeground(Color.black);
-		rLbl.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		rLbl.setForeground(new Color(220,20,60));
+		rLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
 		red.setBounds(20, 80, 255, 50);
 		red.addChangeListener(this); 
 		red.setPaintLabels(true);
 		red.setPaintTrack(true);
 		red.setFont(new Font("SansSerif", Font.PLAIN, 15));
-		red.setForeground(Color.black);
+		red.setForeground(new Color(128,0,0));
 		red.setMajorTickSpacing(255);
-		red.setBackground(Color.white);
+		red.setBackground(new Color(249,249,249));
 		red.setOpaque(true);
 		rt.setBounds(280, 85, 40, 40);
 		rt.setHorizontalAlignment(JTextField.CENTER);
-		rt.setFont(new Font("Serif", Font.PLAIN, 15));
+		rt.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		rt.setBackground(new Color(249,249,249));
 		rt.addActionListener(this);
 				
 		// Green slider 
 		gLbl.setBounds(25, 140, 100, 30);
-		gLbl.setForeground(Color.black);
-		gLbl.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		gLbl.setForeground(new Color(50,205,50));
+		gLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
 		green.setBounds(20, 170, 255, 50);
 		green.addChangeListener(this);	
 		green.setPaintLabels(true);
 		green.setPaintTrack(true);
 		green.setFont(new Font("SansSerif", Font.PLAIN, 15));
-		green.setForeground(Color.black);
+		green.setForeground(new Color(0,100,0));
 		green.setMajorTickSpacing(255);
-		green.setBackground(Color.white);
+		green.setBackground(new Color(249,249,249));
 		green.setOpaque(true);
 		gt.setBounds(280, 175, 40, 40);
 		gt.setHorizontalAlignment(JTextField.CENTER);
 		gt.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		gt.setBackground(new Color(249,249,249));
 		gt.addActionListener(this);
 				
 		// Blue slider
 		bLbl.setBounds(25, 230, 100, 30);
-		bLbl.setForeground(Color.black);
-		bLbl.setFont(new Font("SansSerif", Font.PLAIN, 20));
+		bLbl.setForeground(new Color(30,144,225));
+		bLbl.setFont(new Font("SansSerif", Font.BOLD, 20));
 		blue.setBounds(20, 260, 255, 50);
 		blue.addChangeListener(this);
 		blue.setPaintLabels(true);
 		blue.setPaintTrack(true);
 		blue.setFont(new Font("SansSerif", Font.PLAIN, 15));
-		blue.setForeground(Color.black);
+		blue.setForeground(new Color(0,0,128));
 		blue.setMajorTickSpacing(255);
-		blue.setBackground(Color.white);
+		blue.setBackground(new Color(249,249,249));
 		blue.setOpaque(true);
 		bt.setBounds(280, 265, 40, 40);
 		bt.setHorizontalAlignment(JTextField.CENTER);
 		bt.setFont(new Font("SansSerif", Font.PLAIN, 15));
+		bt.setBackground(new Color(249,249,249));
 		bt.addActionListener(this);
 		
 		add(red);
@@ -139,7 +141,7 @@ public class ColorSliders extends JPanel implements ActionListener, ChangeListen
 		color.setBackground(col);
 		
 		if (r + g + b > 400) {
-			color.setBorder(BorderFactory.createLineBorder(Color.black));
+			color.setBorder(BorderFactory.createLineBorder(Color.gray));
 		} else {
 			color.setBorder(BorderFactory.createLineBorder(Color.white));
 		}
@@ -159,7 +161,7 @@ public class ColorSliders extends JPanel implements ActionListener, ChangeListen
 		color.setBackground(col);
 		
 		if (r + g + b > 400) {
-			color.setBorder(BorderFactory.createLineBorder(Color.black));
+			color.setBorder(BorderFactory.createLineBorder(Color.gray));
 		} else {
 			color.setBorder(BorderFactory.createLineBorder(Color.white));
 		}
