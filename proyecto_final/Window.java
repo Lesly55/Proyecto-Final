@@ -45,8 +45,8 @@ public class Window extends JFrame implements MouseListener{
 		
 		contentPane.setLayout(null);
 		rgb.setBackground(new Color(249, 249, 249));
-		colors.setBackground(Color.gray);
-		//contentPane.setBackground(Color.white);
+		colors.setBackground(new Color(249,249,249));
+		contentPane.setBackground(new Color(249,249,249));
 		contentPane.setBounds(0,0,width,height);
 
 		canvas.setBounds((int) (width*.01), (int) (height*.02), (int) (width*.6), (int) (height*.99));//---	
