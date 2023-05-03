@@ -1,7 +1,5 @@
 package proyecto_final;
-
 import java.awt.*;
-
 import java.awt.event.*;
 import java.awt.image.*;
 //import java.io.File;
@@ -23,7 +21,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		setOpaque(true);
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		//setBackground(Color.white);
+		setBackground(new Color(249,249,249));
 		
 		img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		gfx = img.createGraphics();
