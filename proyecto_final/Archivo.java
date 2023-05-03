@@ -32,9 +32,9 @@ public class Archivo extends JPanel {
 	}
 	
 	protected void components() {
-		eraseBtn 	= new JButton("Erase All");
-		saveAsBtn 	= new JButton("Save as");
-		openBtn		= new JButton("Open");
+		eraseBtn 	= new JButton("Borrar");
+		saveAsBtn 	= new JButton("Guardar");
+		openBtn		= new JButton("Abrir");
 
 		eraseBtn.setBounds(10, 10, 120, 30);
 		eraseBtn.setBackground(Color.red);
