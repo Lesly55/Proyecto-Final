@@ -1,5 +1,4 @@
 package proyecto_final;
-
 //import java.awt.*;
 import java.awt.Color;
 //import java.awt.FlowLayout;
@@ -27,7 +26,7 @@ public class Archivo extends JPanel {
 		components();
 		setSize(400, 400);
 		setLayout(null);
-		//setBackground(Color.gray);
+		setBackground(new Color(249,249,249));
 		setVisible(true);
 	}
 	
@@ -40,7 +39,7 @@ public class Archivo extends JPanel {
 		eraseBtn.setBackground(Color.red);
 		eraseBtn.setOpaque(true);
 		eraseBtn.setBorderPainted(false);
-		eraseBtn.setForeground(Color.black);
+		eraseBtn.setForeground(new Color(139,0,0));
 		eraseBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
 		eraseBtn.addActionListener(e -> {
 			Canvas.gfx.setColor(Color.white);
@@ -52,7 +51,7 @@ public class Archivo extends JPanel {
 		saveAsBtn.setBackground(Color.green);
 		saveAsBtn.setOpaque(true);
 		saveAsBtn.setBorderPainted(false);
-		saveAsBtn.setForeground(Color.black);
+		saveAsBtn.setForeground(new Color(1,50,32));
 		saveAsBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
 		
 		saveAsBtn.addActionListener(e -> {
@@ -72,7 +71,7 @@ public class Archivo extends JPanel {
 		openBtn.setBackground(Color.blue);
 		openBtn.setOpaque(true);
 		openBtn.setBorderPainted(false);
-		openBtn.setForeground(Color.black);
+		openBtn.setForeground(new Color(0,0,139));
 		openBtn.setFont(new Font("SansSerif", Font.PLAIN, 20));
 		
 		openBtn.addActionListener(e -> {
@@ -96,4 +95,3 @@ public class Archivo extends JPanel {
 		add(openBtn);
 	}
 }
-
